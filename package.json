@@ -1,0 +1,26 @@
+{
+  "name": "rss-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1000ch/rss-api.git"
+  },
+  "author": "1000ch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1000ch/rss-api/issues"
+  },
+  "homepage": "https://github.com/1000ch/rss-api",
+  "dependencies": {
+    "body-parser": "^1.12.0",
+    "express": "^4.12.0",
+    "feedparser": "^0.19.2",
+    "helmet": "^0.6.1",
+    "jade": "^1.9.2",
+    "request": "^2.53.0"
+  }
+}
