@@ -1,13 +1,16 @@
-document.addEventListener('DOMContentLoaded', function (e) {
-
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', '/api/data', true);
-
-  xhr.onreadystatechange = function(e) {
-    if (this.readyState === 4 && this.status === 200) {
-      console.log(this.responseText);
-    }
-  };
-
-  xhr.send();
+$(function () {
+  $.ajax({
+    url: '/api/data'
+  }).done(function (data) {
+    var html = '';
+    data.forEach(function (item) {
+      html +=
+        '<li>' +
+        '<a href="' + item.link + '">' + item.title + '</a>' +
+        '</li>';
+    });
+    $('ul').html(html);
+  }).fail(function (error) {
+    console.log(error);
+  });
 });
