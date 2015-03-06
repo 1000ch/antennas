@@ -5,10 +5,8 @@ const FeedLoader = require('./data/feedloader');
 
 const list = [
   'http://feeds.pinboard.in/rss/u:studiomohawk/',
-  'http://feeds.pinboard.in/rss/u:pocotan001/',
-  'http://feeds.pinboard.in/rss/u:hiloki/',
-  'http://feeds.pinboard.in/rss/u:t32k/',
-  'http://feeds.pinboard.in/rss/u:ahomu/'
+  'http://feeds.pinboard.in/rss/u:rem/',
+  'http://feeds.pinboard.in/rss/u:pocotan001/'
 ];
 
 let database = new Database();
@@ -24,6 +22,8 @@ loader.get().then((array) => {
 
   items.drop().then(() => {
     return items.insert(filtered);
+  }).then(() => {
+    return items.index('link');
   }).then(() => {
     process.exit();
   });
