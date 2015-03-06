@@ -12,20 +12,13 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.set('view engine', 'jade');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 
+app.use('/js', express.static(path.join(__dirname, '../public/js')));
+app.use('/css', express.static(path.join(__dirname, '../public/css')));
 
-app.use('/rss', express.static(path.join(__dirname, '/public/rss')));
-app.use('/js', express.static(path.join(__dirname, '/public/js')));
-app.use('/css', express.static(path.join(__dirname, '/public/css')));
-
-var index = require('./routes/index');
-var api = {
-  data: require('./routes/api/data')
-};
-
-app.get('/', index);
-app.get('/api/data', api.data.get);
+app.get('/', require('./routes/index'));
+app.get('/api/feed', require('./routes/api/feed'));
 
 var port = process.env.PORT || 5000;
 

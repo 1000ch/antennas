@@ -1,3 +1,5 @@
+'use strict';
+
 var Parser   = require('feedparser');
 var Promise  = require('promise');
 var request  = require('request');
@@ -42,10 +44,9 @@ class FeedReader {
         });
 
         parser.on('readable', () => {
-          let stream = r;
-          let item;
 
-          while (item = stream.read()) {
+          let item;
+          while (item = parser.read()) {
             array.push({
               title: item.title,
               description: item.description,

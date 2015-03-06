@@ -1,6 +1,6 @@
 $(function () {
   $.ajax({
-    url: '/api/data'
+    url: '/api/feed'
   }).done(function (data) {
     var html = '';
     data.forEach(function (item) {
