@@ -1,9 +1,9 @@
 'use strict';
 
-var Parser   = require('feedparser');
-var Promise  = require('promise');
-var request  = require('request');
-var validUrl = require('valid-url');
+const Parser   = require('feedparser');
+const Promise  = require('promise');
+const request  = require('request');
+const validUrl = require('valid-url');
 
 class FeedLoader {
 
