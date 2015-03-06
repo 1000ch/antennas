@@ -18,15 +18,13 @@ let items    = database.collection('items');
 loader.get().then((array) => {
 
   let links    = array.map((item) => item.link);
-  let promises = array.filter((item, index) => {
+  let filtered = array.filter((item, index) => {
     return links.indexOf(item.link) === index;
-  }).map((item) => {
-    return items.insert(item)
   });
 
-  items.drop(function () {
-    Promise.all(promises).then(() => {
-      process.exit();
-    });
+  items.drop().then(() => {
+    return items.insert(filtered);
+  }).then(() => {
+    process.exit();
   });
 });

@@ -54,7 +54,12 @@ class FeedLoader {
                 title: item.title,
                 description: item.description || '',
                 pubdate: item.pubdate || item.pubDate || '',
-                link: item.link
+                link: item.link,
+                meta: {
+                  title: item.meta.title,
+                  description: item.meta.description,
+                  link: item.meta.link
+                }
               });
             }
           });
