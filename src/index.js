@@ -18,7 +18,7 @@ app.use('/js', express.static(path.join(__dirname, '../public/js')));
 app.use('/css', express.static(path.join(__dirname, '../public/css')));
 
 app.get('/', require('./routes/index'));
-app.get('/api/feed', require('./routes/api/feed'));
+app.get('/api/rss', require('./routes/api/rss'));
 
 var port = process.env.PORT || 5000;
 
