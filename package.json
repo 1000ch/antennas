@@ -1,6 +1,9 @@
 {
   "name": "antennas",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "engines": {
+    "node": "0.12.x"
+  },
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
@@ -28,9 +31,7 @@
     "monk": "^1.0.0",
     "promise": "^6.1.0",
     "request": "^2.53.0",
-    "valid-url": "^1.0.9"
-  },
-  "devDependencies": {
+    "valid-url": "^1.0.9",
     "gulp": "^3.8.11",
     "gulp-babel": "^4.0.0",
     "gulp-espower": "^0.10.1",
