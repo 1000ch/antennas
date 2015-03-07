@@ -10,7 +10,8 @@
     "start": "node dist/index.js",
     "postinstall": "gulp build",
     "watch": "gulp watch",
-    "build": "gulp build"
+    "build": "gulp build",
+    "fetch": "node dist/fetch.js"
   },
   "repository": {
     "type": "git",
