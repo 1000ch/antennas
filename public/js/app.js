@@ -37,7 +37,7 @@ $(function () {
 
   $('#prev').on('click', function () {
     if (0 < skip) {
-      skip -= 10;
+      skip -= 20;
     }
     if (skip < 0) {
       skip = 0;
@@ -49,7 +49,7 @@ $(function () {
 
     var $items = $('#items').find('li');
     if ($items.length % 20 === 0) {
-      skip += 10;
+      skip += 20;
       fetchItems(skip);
     }
   });
