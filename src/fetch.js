@@ -22,9 +22,19 @@ loader.get().then((array) => {
 
   items.drop().then(() => {
     return items.insert(filtered);
-  }).then(() => {
+  }, (error) => {
+    console.log(error);
+  })
+
+  .then(() => {
     return items.index('link');
+  }, (error) => {
+    console.log(error);
   }).then(() => {
+
+    console.log(`${array.length} links fetched...`);
+    console.log(`${filtered.length} links inserted...`);
+
     process.exit();
   });
 });
