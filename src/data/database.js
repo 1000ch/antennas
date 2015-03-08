@@ -1,6 +1,6 @@
 'use strict';
 
-var monk = require('monk');
+const monk = require('monk');
 
 const dbname   = 'antennas';
 const hostname = process.env.MONGOLAB_URI || `mongodb://127.0.0.1:27017/${dbname}`;
