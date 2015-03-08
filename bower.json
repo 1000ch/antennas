@@ -1,0 +1,19 @@
+{
+  "name": "antennas",
+  "homepage": "https://github.com/1000ch/antennas",
+  "authors": [
+    "1000ch <shogo.sensui@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "react": "~0.12.2"
+  }
+}

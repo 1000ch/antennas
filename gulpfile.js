@@ -1,60 +1,58 @@
 var gulp     = require('gulp');
+var SRC_FILES  = ['./src/**/*.js'];
+var APP_FILES = ['./public/js/app.js'];
+var LIB_FILES = [
+  './bower_components/jquery/dist/jquery.min.js',
+  './bower_components/react/react.min.js'
+];
 
-var FILE_TEST_RUNNER      = './test/runner.js';
-var DIR_DIST = './dist';
-var DIR_TEMP = './temp';
+gulp.task('frontend:app', function () {
+  var rename = require('gulp-rename');
+  var uglify = require('gulp-uglify');
 
-var GLOB_TEST_FILES = ['./test/**/*.js', '!./test/runner.js'];
-var GLOB_SRC_FILES  = ['./src/**/*.js'];
-
-gulp.task('lint', function() {
-  var eslint   = require('gulp-eslint');
-
-  return gulp.src(GLOB_SRC_FILES)
-    .pipe(eslint({useEslintrc: true}))
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+  return gulp.src(APP_FILES)
+    .pipe(rename('app.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./public/js'));
 });
 
-gulp.task('pretest', function() {
-  gulp.start('build', 'build-test');
+gulp.task('frontend:lib', function () {
+  var concat = require('gulp-concat');
+
+  return gulp.src(LIB_FILES)
+    .pipe(concat('lib.min.js'))
+    .pipe(gulp.dest('./public/js'));
+});
+
+gulp.task('backend', function() {
+  var babel   = require('gulp-babel');
+
+  return gulp.src(SRC_FILES)
+    .pipe(babel({
+      experimental : false
+    }))
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('watch', function() {
-  gulp.watch(GLOB_SRC_FILES, function() {
-    gulp.start('build');
+  gulp.watch(APP_FILES, function() {
+    gulp.start('frontend:app');
+  });
+
+  gulp.watch(SRC_FILES, function() {
+    gulp.start('backend');
   });
 });
 
-gulp.task('build-test', function() {
-  var espower = require('gulp-espower');
-
-  gulp.src(FILE_TEST_RUNNER)
-    .pipe(gulp.dest(DIR_TEMP));
-
-  return gulp.src(GLOB_TEST_FILES)
-    .pipe(espower())
-    .pipe(gulp.dest(DIR_TEMP));
+gulp.task('build', function () {
+  gulp.start('frontend:lib', 'frontend:app', 'backend');
 });
 
-gulp.task('build', function() {
-  var babel   = require('gulp-babel');
+gulp.task('lint', function() {
+  var eslint = require('gulp-eslint');
 
-  return gulp.src(GLOB_SRC_FILES)
-    .pipe(babel({
-      experimental : false
-    }))
-    .pipe(gulp.dest(DIR_DIST));
-});
-
-gulp.task('build-test', function() {
-  var espower = require('gulp-espower');
-  var babel   = require('gulp-babel');
-
-  return gulp.src(GLOB_TEST_FILES)
-    .pipe(babel({
-      experimental : false
-    }))
-    .pipe(espower())
-    .pipe(gulp.dest(DIR_TEMP));
+  return gulp.src(SRC_FILES)
+    .pipe(eslint({useEslintrc: true}))
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
