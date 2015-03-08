@@ -1,8 +1,8 @@
 'use strict';
 
 const fs         = require('fs');
-const Database   = require('./data/database');
-const FeedLoader = require('./data/feedloader');
+const Database   = require('./database');
+const FeedLoader = require('./feedloader');
 
 let list     = JSON.parse(fs.readFileSync('config.json'));
 let database = new Database();
