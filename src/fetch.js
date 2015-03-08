@@ -1,14 +1,10 @@
 'use strict';
 
+const fs         = require('fs');
 const Database   = require('./data/database');
 const FeedLoader = require('./data/feedloader');
 
-const list = [
-  'http://feeds.pinboard.in/rss/u:studiomohawk/',
-  'http://feeds.pinboard.in/rss/u:rem/',
-  'http://feeds.pinboard.in/rss/u:pocotan001/'
-];
-
+let list     = JSON.parse(fs.readFileSync('config.json'));
 let database = new Database();
 let loader   = new FeedLoader(list);
 let items    = database.collection('items');
