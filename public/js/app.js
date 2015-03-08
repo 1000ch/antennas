@@ -7,7 +7,7 @@ var ItemList = React.createClass({
             item.title,
             React.createElement('p', null, item.description),
             React.createElement('p', null, item.meta.title),
-            React.createElement('p', null, item.pubdate)
+            React.createElement('p', null, moment(item.pubdate).format('YYYY/MM/DD HH:mm'))
           )
         )
       );
