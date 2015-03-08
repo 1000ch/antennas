@@ -1,7 +1,11 @@
 # antennas
 
-Front-end: React.js
-Back-end: Node.js using ECMAScript 6, MongoDB
+- Front-end:
+    - React.js
+    - jQuery
+- Back-end:
+    - Node.js
+    - MongoDB
 
 ## debug
 
