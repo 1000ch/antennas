@@ -1,27 +1,43 @@
 var gulp     = require('gulp');
 
 var SRC_JS_FILES  = ['./src/**/*.js'];
-var APP_JS_FILES = ['./public/js/app.js'];
-var APP_CSS_FILES = ['./public/css/app.css'];
+
+var APP_JS_FILES = [
+  './public/js/namespace.js',
+  './public/js/model/item.js',
+  './public/js/collection/itemlist.js',
+  './public/js/view/itemlistview.js',
+  './public/js/view/paginateview.js',
+  './public/js/main.js'
+];
+
 var LIB_JS_FILES = [
   './bower_components/jquery/dist/jquery.min.js',
+  './bower_components/underscore/underscore-min.js',
+  './bower_components/backbone/backbone.js',
   './bower_components/react/react.min.js',
   './bower_components/moment/min/moment.min.js',
   './bower_components/ratchet/dist/js/ratchet.min.js'
 ];
+
+var APP_CSS_FILES = [
+  './public/css/app.css'
+];
+
 var LIB_CSS_FILES = [
   './bower_components/ratchet/dist/css/ratchet.min.css'
 ];
+
 var LIB_FONT_FILES = [
   './bower_components/ratchet/dist/fonts/*'
 ];
 
 gulp.task('frontend:app:js', function () {
-  var rename = require('gulp-rename');
+  var concat = require('gulp-concat');
   var uglify = require('gulp-uglify');
 
   return gulp.src(APP_JS_FILES)
-    .pipe(rename('app.min.js'))
+    .pipe(concat('app.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./public/js'));
 });

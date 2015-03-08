@@ -19,7 +19,8 @@ app.use('/css', express.static(path.join(__dirname, '../public/css')));
 app.use('/fonts', express.static(path.join(__dirname, '../public/fonts')));
 
 app.get('/', require('./routes/index'));
-app.get('/api/rss', require('./routes/api/rss'));
+app.get('/login', require('./routes/login'));
+app.get('/api/items', require('./routes/api/items'));
 
 var port = process.env.PORT || 5000;
 
