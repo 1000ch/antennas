@@ -1,12 +1,15 @@
 var ItemList = React.createClass({
   render: function () {
-    return React.createElement('ul', {
-      id: 'items'
-    }, this.props.items.map(function(item) {
-      return React.createElement('li', null,
-        React.createElement('a', {href: item.link}, item.title),
-        React.createElement('span', null, item.meta.title),
-        React.createElement('time', null, item.pubdate)
+    return React.createElement('ul', {id: 'items', className: 'table-view'}, this.props.items.map(function(item) {
+      return React.createElement('li', {className: 'table-view-cell media'},
+        React.createElement('a', {href: item.link},
+          React.createElement('div', {className: 'media-body'},
+            item.title,
+            React.createElement('p', null, item.description),
+            React.createElement('p', null, item.meta.title),
+            React.createElement('p', null, item.pubdate)
+          )
+        )
       );
     }));
   }

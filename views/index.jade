@@ -1,12 +1,22 @@
 doctype html
 html
   head
-    meta(charset='utf-8')
-    link(rel='stylesheet', href='/css/app.css')
+    meta(charset="utf-8")
+    meta(name="viewport", content="initial-scale=1", maximum-scale="1")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+    link(rel="stylesheet", href="/css/lib.min.css")
+    link(rel="stylesheet", href="/css/app.min.css")
   body
-    nav
-      span#prev ←
-      span#next →
+    header.bar.bar-nav
+      h1.title Antennas
     div#container
-    script(src='/js/lib.min.js')
-    script(src='/js/app.min.js')
+    nav.bar.bar-tab
+      a#prev.tab-item
+        span.icon.icon-left-nav
+        span.tab-label Prev
+      a#next.tab-item
+        span.icon.icon-right-nav
+        span.tab-label Next
+    script(src="/js/lib.min.js")
+    script(src="/js/app.min.js")

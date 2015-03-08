@@ -16,6 +16,7 @@ app.set('views', path.join(__dirname, '../views'));
 
 app.use('/js', express.static(path.join(__dirname, '../public/js')));
 app.use('/css', express.static(path.join(__dirname, '../public/css')));
+app.use('/fonts', express.static(path.join(__dirname, '../public/fonts')));
 
 app.get('/', require('./routes/index'));
 app.get('/api/rss', require('./routes/api/rss'));
