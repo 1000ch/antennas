@@ -5,7 +5,8 @@ var APP_JS_FILES = ['./public/js/app.js'];
 var APP_CSS_FILES = ['./public/css/app.css'];
 var LIB_JS_FILES = [
   './bower_components/jquery/dist/jquery.min.js',
-  './bower_components/react/react.min.js'
+  './bower_components/react/react.min.js',
+  './bower_components/ratchet/dist/js/ratchet.min.js'
 ];
 var LIB_CSS_FILES = [
   './bower_components/ratchet/dist/css/ratchet.min.css'

@@ -27,7 +27,7 @@ function fetchItems(skip, limit) {
       React.createElement(ItemList, {
         items: items
       }),
-      document.querySelector('#container')
+      document.querySelector('.content')
     );
   }).fail(function (error) {
     console.log(error);
@@ -49,12 +49,11 @@ $(function () {
   });
 
   $('#next').on('click', function () {
-
-    var $items = $('#items').find('li');
-    if ($items.length % 20 === 0) {
-      skip += 20;
-      fetchItems(skip);
+    if ($('#items').find('li').length % 20 !== 0) {
+      return;
     }
+    skip += 20;
+    fetchItems(skip);
   });
 
   fetchItems(skip);
