@@ -1,5 +1,12 @@
 [
-  "http://feeds.pinboard.in/rss/u:studiomohawk/",
-  "http://feeds.pinboard.in/rss/u:rem/",
-  "http://feeds.pinboard.in/rss/u:pocotan001/"
+  {
+    "title": "Pinboard (studiomohawk)",
+    "url": "http://feeds.pinboard.in/rss/u:studiomohawk/"
+  }, {
+    "title": "Pinboard (rem)",
+    "url": "http://feeds.pinboard.in/rss/u:rem/"
+  }, {
+    "title": "Pinboard (pocotan001)",
+    "url": "http://feeds.pinboard.in/rss/u:pocotan001/"
+  }
 ]

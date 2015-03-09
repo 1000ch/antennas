@@ -16,7 +16,7 @@ antennas.component.ItemList = React.createClass({
 });
 
 antennas.view.ItemListView = Backbone.View.extend({
-  el: '#list',
+  el: '#item-list',
   initialize: function () {
     this.listenTo(this.collection, 'add remove sync', this.render);
   },

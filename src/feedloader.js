@@ -18,6 +18,14 @@ class FeedLoader {
     this.urls.push(url);
   }
 
+  addUrls(urls = []) {
+    urls.filter((url) => {
+      return validUrl.isUri(url);
+    }).forEach((url) => {
+      this.urls.push(url);
+    });
+  }
+
   get() {
 
     return new Promise((resolve, reject) => {

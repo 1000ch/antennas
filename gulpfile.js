@@ -4,8 +4,11 @@ var SRC_JS_FILES  = ['./src/**/*.js'];
 
 var APP_JS_FILES = [
   './public/js/namespace.js',
+  './public/js/model/url.js',
   './public/js/model/item.js',
   './public/js/collection/item-list.js',
+  './public/js/collection/url-list.js',
+  './public/js/view/url-list-view.js',
   './public/js/view/item-list-view.js',
   './public/js/view/paginate-view.js',
   './public/js/main.js'

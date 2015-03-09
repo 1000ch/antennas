@@ -4,33 +4,63 @@ const fs         = require('fs');
 const Database   = require('./database');
 const FeedLoader = require('./feedloader');
 
-let list     = JSON.parse(fs.readFileSync('config.json'));
 let database = new Database();
-let loader   = new FeedLoader(list);
-let items    = database.collection('items');
+let loader   = new FeedLoader();
+let db       = {
+  urls:  database.collection('urls'),
+  items: database.collection('items')
+};
 
-loader.get().then((array) => {
+db.urls.count({}).then((count) => {
 
-  let links    = array.map((item) => item.link);
-  let filtered = array.filter((item, index) => {
-    return links.indexOf(item.link) === index;
+  console.log(`Registered URLs are ${count}`);
+
+  if (count === 0) {
+    let defaults = JSON.parse(fs.readFileSync('config.json'));
+    return db.urls.insert(defaults).then(() => {
+      return db.urls.find({});
+    });
+  } else {
+    return db.urls.find({});
+  }
+
+}).then((urls) => {
+
+  console.log(urls.map((item) => {
+    return item.url;
+  }));
+
+  loader.addUrls(urls.map((item) => {
+    return item.url;
+  }));
+
+  loader.get().then((items) => {
+
+    let links    = items.map((item) => item.link);
+    let filtered = items.filter((item, index) => {
+      return links.indexOf(item.link) === index;
+    });
+
+    db.items.drop().then(
+      () => db.items.insert(filtered),
+      (error) => console.log(error)
+    ).then(
+      () => db.items.index('link'),
+      (error) => console.log(error)
+    ).then(() => {
+
+      console.log(`${items.length} links fetched...`);
+      console.log(`${filtered.length} links inserted...`);
+
+      process.exit();
+    }, (error) => {
+      console.log(error);
+    });
   });
 
-  items.drop().then(() => {
-    return items.insert(filtered);
-  }, (error) => {
-    console.log(error);
-  })
+}, (error) => {
 
-  .then(() => {
-    return items.index('link');
-  }, (error) => {
-    console.log(error);
-  }).then(() => {
+  console.log(error);
+  process.exit();
 
-    console.log(`${array.length} links fetched...`);
-    console.log(`${filtered.length} links inserted...`);
-
-    process.exit();
-  });
 });
