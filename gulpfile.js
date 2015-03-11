@@ -100,7 +100,14 @@ gulp.task('watch', function() {
 });
 
 gulp.task('build', function () {
-  gulp.start('frontend:lib:js', 'frontend:lib:css', 'frontend:lib:font', 'frontend:app:js', 'frontend:app:css', 'backend');
+  gulp.start(
+    'frontend:lib:js',
+    'frontend:lib:css',
+    'frontend:lib:font',
+    'frontend:app:js',
+    'frontend:app:css',
+    'backend'
+  );
 });
 
 gulp.task('lint', function() {
