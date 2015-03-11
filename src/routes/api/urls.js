@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const Database   = require('../../database');
+const Database = require('../../database');
 
 module.exports = {
   get: function (request, response) {
@@ -22,8 +22,6 @@ module.exports = {
   },
   post: function (request, response) {
 
-    console.log(request.body.url);
-
     let database = new Database();
     let items    = database.collection('urls');
 
@@ -42,13 +40,11 @@ module.exports = {
   },
   put: function (request, response) {
 
-    console.log(request.body.title);
-    console.log(request.body.url);
-
     let database = new Database();
     let items    = database.collection('urls');
 
     items.update({
+      _id: request.params.id,
       link: request.body.url
     }, {
       link: request.body.url,
@@ -65,14 +61,12 @@ module.exports = {
   },
   delete: function (request, response) {
 
-    console.log(request.body.url);
-
     let database = new Database();
     let items    = database.collection('urls');
 
-    items.remove({
-      link: request.body.url
-    }).then(() => {
+    items.removeById(
+      request.params.id
+    ).then(() => {
       response.status(204).json({
         message: `${request.body.url} is successfully deleted`
       });

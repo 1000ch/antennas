@@ -1,3 +1,5 @@
+"use strict";
+
 let path = require('path');
 
 let express = require('express');
@@ -31,10 +33,11 @@ let routes = {
 
 app.get('/api/login', require('./routes/api/login'));
 app.get('/api/items', routes.items.get);
+
 app.get('/api/urls', routes.urls.get);
 app.post('/api/urls', routes.urls.post);
-app.put('/api/urls', routes.urls.put);
-app.delete('/api/urls', routes.urls.delete);
+app.put('/api/urls/:id', routes.urls.put);
+app.delete('/api/urls/:id', routes.urls.delete);
 
 let port = process.env.PORT || 5000;
 
