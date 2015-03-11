@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const Parser   = require('feedparser');
 const Promise  = require('promise');

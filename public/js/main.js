@@ -1,3 +1,5 @@
+"use strict";
+
 antennas.collection.itemList = new antennas.collection.ItemList();
 antennas.collection.urlList = new antennas.collection.UrlList();
 

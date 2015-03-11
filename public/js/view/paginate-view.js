@@ -1,3 +1,5 @@
+"use strict";
+
 antennas.view.PaginateView = Backbone.View.extend({
   el: '#paginate',
   skip: 0,
