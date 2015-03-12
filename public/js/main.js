@@ -11,6 +11,10 @@ antennas.view.urlListView = new antennas.view.UrlListView({
   collection: antennas.collection.urlList
 });
 
+antennas.view.addUrlView = new antennas.view.AddUrlView({
+  collection: antennas.collection.urlList
+});
+
 antennas.view.paginateView = new antennas.view.PaginateView({
   collection: antennas.collection.itemList
 });
@@ -21,14 +25,12 @@ antennas.Router = Backbone.Router.extend({
     'login': 'login',
     'setting': 'setting'
   },
-  initialze: function () {
-  },
+  initialze: function () {},
   onRoute: function () {},
   index: function () {
     antennas.collection.itemList.fetch();
   },
-  login: function () {
-  },
+  login: function () {},
   setting: function () {
     antennas.collection.urlList.fetch();
   }
