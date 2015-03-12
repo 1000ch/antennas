@@ -26,7 +26,7 @@ module.exports = {
     let items    = database.collection('urls');
 
     items.insert({
-      link: request.body.url,
+      url: request.body.url,
       title: request.body.title
     }).then(() => {
       response.status(204).json({
@@ -45,9 +45,9 @@ module.exports = {
 
     items.update({
       _id: request.params.id,
-      link: request.body.url
+      url: request.body.url
     }, {
-      link: request.body.url,
+      url: request.body.url,
       title: request.body.title
     }).then(() => {
       response.status(204).json({
