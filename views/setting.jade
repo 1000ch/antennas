@@ -21,7 +21,8 @@ html
           h1.title Add URL
         .content
           form.input-group
-            input(type="text", placeholder="URL", required)
+            input#rss-title(type="text", placeholder="Title", required)
+            input#rss-url(type="text", placeholder="URL", required)
             button.btn.btn-positive.btn-block Add
     footer.bar.bar-standard.bar-footer
     script(src="/js/lib.min.js")

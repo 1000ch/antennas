@@ -7,18 +7,16 @@ antennas.view.AddUrlView = Backbone.View.extend({
   },
   onSubmit: function (e) {
 
-    var url = this.$el.find('input').val();
+    var title = this.$el.find('#rss-title').val();
+    var url = this.$el.find('#rss-url').val();
 
-    $.ajax(url).done(function (xml) {
-      var model = new antennas.model.Url({
-        url: url,
-        title: $(xml).find('title').text()
-      });
-      this.collection.create(model, {
-        validate: true
-      });
-    }).fail(function (error) {
-      console.log(error);
+    var model = new antennas.model.Url({
+      title: title,
+      url: url
+    });
+
+    this.collection.create(model, {
+      validate: true
     });
   }
 });
