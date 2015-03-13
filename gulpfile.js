@@ -9,8 +9,10 @@ var APP_JS_FILES = [
   './public/js/collection/item-list.js',
   './public/js/collection/url-list.js',
   './public/js/view/url-list/index.js',
+  './public/js/view/url-list/component.jsx',
   './public/js/view/add-url/index.js',
   './public/js/view/item-list/index.js',
+  './public/js/view/item-list/component.jsx',
   './public/js/view/paginate/index.js',
   './public/js/main.js'
 ];
@@ -39,9 +41,11 @@ var LIB_FONT_FILES = [
 
 gulp.task('frontend:app:js', function () {
   var concat = require('gulp-concat');
+  var react  = require('gulp-react');
   var uglify = require('gulp-uglify');
 
   return gulp.src(APP_JS_FILES)
+    .pipe(react())
     .pipe(concat('app.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./public/js'));
