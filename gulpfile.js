@@ -1,7 +1,6 @@
 var gulp     = require('gulp');
 
 var SRC_JS_FILES  = ['./src/**/*.js'];
-var SRC_JSX_FILES  = ['./src/**/*.jsx'];
 
 var APP_JS_FILES = [
   './public/js/namespace.js',
@@ -15,6 +14,7 @@ var APP_JS_FILES = [
   './public/js/view/paginate/index.js',
   './public/js/main.js'
 ];
+var APP_JSX_FILES  = ['./public/js/**/*.jsx'];
 
 var LIB_JS_FILES = [
   './bower_components/jquery/dist/jquery.min.js',
