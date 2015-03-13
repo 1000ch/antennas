@@ -1,6 +1,7 @@
 var gulp     = require('gulp');
 
 var SRC_JS_FILES  = ['./src/**/*.js'];
+var SRC_JSX_FILES  = ['./src/**/*.jsx'];
 
 var APP_JS_FILES = [
   './public/js/namespace.js',
@@ -8,10 +9,10 @@ var APP_JS_FILES = [
   './public/js/model/item.js',
   './public/js/collection/item-list.js',
   './public/js/collection/url-list.js',
-  './public/js/view/url-list-view.js',
-  './public/js/view/addurl-view.js',
-  './public/js/view/item-list-view.js',
-  './public/js/view/paginate-view.js',
+  './public/js/view/url-list/index.js',
+  './public/js/view/add-url/index.js',
+  './public/js/view/item-list/index.js',
+  './public/js/view/paginate/index.js',
   './public/js/main.js'
 ];
 

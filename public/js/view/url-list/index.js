@@ -1,17 +1,5 @@
 "use strict";
 
-antennas.component.UrlList = React.createClass({
-  render: function () {
-    return React.createElement('ul', {className: 'table-view'}, this.props.items.map(function(item) {
-      return React.createElement('li', {className: 'table-view-cell'},
-        item.title,
-        React.createElement('p', null, item.url),
-        React.createElement('button', {'data-url': item.url, className: 'btn btn-negative'}, 'Delete')
-      );
-    }));
-  }
-});
-
 antennas.view.UrlListView = Backbone.View.extend({
   el: '#url-list',
   events: {

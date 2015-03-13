@@ -1,7 +1,7 @@
 "use strict";
 
 antennas.view.AddUrlView = Backbone.View.extend({
-  el: '#addurl',
+  el: '#add-url',
   events: {
     'submit form': 'onSubmit'
   },
