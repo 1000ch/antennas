@@ -3,14 +3,14 @@ antennas.component.UrlList = React.createClass({
 
     var createItem = function (item) {
       return (
-        <li class="table-view-cell">
+        <li className="table-view-cell">
           {item.title}
           <p>item.url</p>
-          <button class="btn btn-negative" data-url="{item.url}">Delete</button>
+          <button className="btn btn-negative" data-url={item.url}>Delete</button>
         </li>
       );
     };
 
-    return <ul class="table-view">{this.props.items.map(createItem)}</ul>;
+    return <ul className="table-view">{this.props.items.map(createItem)}</ul>;
   }
 });

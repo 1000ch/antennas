@@ -3,19 +3,23 @@ antennas.component.ItemList = React.createClass({
 
     var createItem = function (item) {
       return (
-        <li class="table-view-cell media">
-          <a href="{item.link}">
-            <div class="media-body">
+        <li className="table-view-cell media">
+          <a href={item.link}>
+            <div className="media-body">
               {item.title}
               <p>{item.description}</p>
               <p>{item.meta.title}</p>
-              <p>moment(item.pubdate).format('YYYY/MM/DD HH:mm')</p>
+              <p>{moment(item.pubdate).format('YYYY/MM/DD HH:mm')}</p>
             </div>
           </a>
         </li>
       );
     };
 
-    return <ul class="table-view">{this.props.items.map(createItem)}</ul>;
+    return (
+      <ul className="table-view">
+        {this.props.items.map(createItem)}
+      </ul>
+    );
   }
 });
