@@ -5,7 +5,7 @@ antennas.component.UrlList = React.createClass({
       return (
         <li className="table-view-cell">
           {item.title}
-          <p>item.url</p>
+          <p>{item.url}</p>
           <button className="btn btn-negative" data-url={item.url}>Delete</button>
         </li>
       );
